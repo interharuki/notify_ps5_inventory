@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"notify/secrets"
 	"strings"
 )
 
@@ -12,7 +13,6 @@ type Line struct {
 }
 
 const URL = "https://notify-api.line.me/api/notify"
-const accessToken = "ACCESS_TOKEN"
 
 func NewLine(msg string) *Line {
 	return &Line{
@@ -38,7 +38,7 @@ func (l *Line) Notify() error {
 
 	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	req.Header.Set("Authorization", "Bearer "+accessToken)
+	req.Header.Set("Authorization", "Bearer "+secrets.LINE_ACCESS_TOKEN)
 
 	_, err = c.Do(req)
 	if err != nil {

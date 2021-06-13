@@ -6,8 +6,10 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-const ps5Digital = "https://books.rakuten.co.jp/rb/16462860/"
-const ps5Normal = "https://books.rakuten.co.jp/rb/16462859/"
+const (
+	ps5Digital = "https://books.rakuten.co.jp/rb/16462860/"
+	ps5Normal  = "https://books.rakuten.co.jp/rb/16462859/"
+)
 
 type Rakuten struct {
 	url string
